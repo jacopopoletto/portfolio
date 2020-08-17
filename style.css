@@ -17,9 +17,15 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0;
 }
 
-nav, header, main, footer {
+nav, header, main, footer, section {
     padding: 16px;
     margin: 0px;
+}
+
+video {
+    margin-top: 24px;
+    margin-bottom: 24px;
+    border: 1px solid black;
 }
 
 
@@ -28,7 +34,9 @@ nav {
     position:fixed;
     width: 100%;
     padding: 16px;
-    background-color: red;
+    background-color: white;
+    color:black;
+    z-index: 1;
 }
 
 .nav-container {
@@ -36,16 +44,23 @@ nav {
     justify-content: space-between;
     flex-wrap: wrap;
     align-items: center;
+    color: inherit;
 }
 
 nav .logo {
-    font-size: 28px;
-    font-weight: 700;
+    font-size: 24px;
+    font-weight: 400;
     cursor: pointer;
+    color: inherit;
+}
+
+.logo h3 {
+    font-weight: inherit;
 }
 
 .nav-links {
     margin-top: 16px;
+    color: inherit;
 }
 
 .burger {
@@ -54,26 +69,38 @@ nav .logo {
 }
 
 .line1, .line2 {
-    width: 32px;
+    width: 28px;
     height: 2px;
     background-color: black;
-    margin-top: 8px;
-    margin-bottom: 8px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.line1 {
+    transform: translateY(-3px);
+    /* transition: ;*/
+}
+
+.line2 {
+    transform: translateY(3px);
+    /* transition: ;*/
 }
 
 .nav-links {
     flex-basis: 100%;
-
+    color: inherit;
 }
 
 .nav-links li {
     list-style: none;
     margin-top: 4px;
     margin-bottom: 4px;
+    color: inherit;
 }
 
 .nav-links a {
     cursor: pointer;
+    color: inherit;
 }
 
 .nav-links a:hover, .nav-links a:focus {
@@ -89,8 +116,26 @@ header {
     align-items: flex-end;
 }
 
+section {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
 .header-container {
     width: 100%;
+}
+
+.abstract-container {
+    width: 100%;
+}
+
+.abstract-container p {
+    font-size: 24px;
+    margin-top: 24px;
+    margin-bottom: 48px;
+    font-style: italic;
 }
 
 h1 {
@@ -102,7 +147,7 @@ h1 {
 }
 
 /* fix-header-h1 */
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 320px) {
     h1 {
         font-size: 32px;
     }
@@ -171,6 +216,42 @@ a {
     width: 100%;
 }
 
+.project-link-unique {
+    border: 1px solid black;
+    width: 100%;
+    margin-top: 2px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.project-link-unique:hover, .project-link-unique:focus {
+    background-color: black;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.project-link-unique {
+    padding: 8px;
+    width: 100%;
+}
+
+.see-process span {
+    font-weight: 700;
+    margin-top: 24px;
+    animation: animate 1.5s linear infinite;
+    position: relative;
+    display: inline-block;
+}
+
+@keyframes animate {
+    0% {
+        transform: translateY(-20px);
+    }
+    10% {
+        transform: translateY(-10px); 
+    }
+}
+
 
 /* main style */
 .selected-project-container {
@@ -211,6 +292,7 @@ a {
 img {
     margin: 0;
     width: 100%;
+    border-style: none;
 }
 
 .project-description {
@@ -235,16 +317,74 @@ img {
 .paragraph-content p {
     font-size: 16px;
     line-height: inherit;
-    margin: 8px 0 8px 0;
+    margin: 8px 0 16px 0;
 }
 
 .bold {
     font-weight: 700;
 }
 
+.italic {
+    font-style: italic;
+}
+
 .underline {
     text-decoration: underline;
 }
+
+.project-multiple-screens {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.project-multiple-screens figure {
+    max-width: 50%;
+}
+
+.project-multiple-screens img {
+    max-width: 100%;
+}
+
+.all-projects-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.all-projects-container .project-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.project-container h3{
+    font-weight: 400;
+}
+
+.project-container figure {
+    width: 100%;
+}
+
+figure img {
+    width: 100%;
+    height: auto;
+}
+
+
+.project-thumbnail {
+    border: 1px solid black;
+    margin-bottom: 24px;
+    width: 100%;
+}
+
+main .photo-container {
+    display: flex;
+    flex-direction: column;
+}
+
+
 
 
 /* pagination style */
@@ -252,6 +392,14 @@ img {
     display: flex;
     justify-content: space-between;
     margin-top: 128px;
+}
+
+.pagination-continer a {
+    color: inherit;
+}
+
+.pagination-continer span {
+    color: inherit;
 }
 
 /* footer style */
@@ -281,12 +429,6 @@ img {
 
 /* tablet */
 @media screen and (min-width: 768px) {
-
-    nav .logo {
-        font-size: 32px;
-        font-weight: 700;
-    }
-
     .project-info-container {
         flex-direction: row;
     }
@@ -308,6 +450,15 @@ img {
         margin: 4px;
     }
 
+    .project-multiple-screens {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .project-multiple-screens figure {
+        width: 25%;
+    }
+
     .footer-container {
         flex-direction: row;
         justify-content: space-between;
@@ -315,6 +466,10 @@ img {
 
     .follow h4{
         margin-top: 0;
+    }
+
+    main .photo-container {
+        flex-direction: row;
     }
 
 }
@@ -350,13 +505,17 @@ img {
         display: block;
     }
     
-    header {
+    header, section {
         margin-left: auto;
         margin-right: auto;
         max-width: 1280px;
     }
 
     .header-container {
+        max-width: 774px;
+    }
+
+    .abstract-container {
         max-width: 774px;
     }
 
@@ -369,7 +528,7 @@ img {
         font-size: 32px;
     }
 
-    .project-links-container {
+    .see-process {
         margin-bottom: 128px;
     }
 
@@ -422,8 +581,64 @@ img {
     }
 
     .paragraph-content p{
-        margin: 0px;
+        margin: 0 0 16px 0;
     }
 
 }
+
+@media (prefers-color-scheme: dark) {
+    /* defaults to dark theme */
+    body { 
+      color: #eee;
+      background-color: #121212;
+    }
+
+    nav {
+        color: #eee;
+        background-color: #121212;
+    }
+
+    .line1, .line2 {
+        background-color: #eee;
+    }
+    
+
+    .project-link {
+        border: 1px solid #eee;
+        width: 100%;
+        margin-top: 2px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .project-link-unique {
+        border: 1px solid #eee;
+    }
+    
+    .project-link-unique:hover, .project-link-unique:focus {
+        background-color: #eee;
+        color: #121212;
+    }
+    
+    a {
+        color: #eee;
+    }
+    
+    .project-link:hover, .project-link:focus {
+        background-color: #eee;
+        color: #121212;
+        transition: all 0.3s ease;
+    }
+
+    video {
+        border: 1px solid #eee;
+    }
+
+    .project-info-container {
+        border-top: 1px solid #eee;
+    }
+
+
+
+ }  
 
